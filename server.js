@@ -26,9 +26,29 @@ app.get("/api/notes", function(err, res){
     res.json(notesData);
 });
 
+//writes new note to json file
+app.post("/api/notes", function(rrq, res) {
+    try{
+        notesData = fs.readFileSync(".develop/db/db.son", "utf");
+        console.log(notesData);
+        notesData = JSON.parse(notesData);
+        requestAnimationFrame.body.id = notesData.length;
+        notesData.push(req.body);
+        notesData = JSON.stringify(notesData);
+        fs.writeFile(".develop/db/db.json", notesData, "utf8", function(err){
+            if (err) throw err;
+        });
+        res.json(JSON.parse(notesData));
+    } catch (err) {
+        throw err;
+        console.error(err);
+    }
+});
+
 
 
 // Start the server on the port
 app.listen(PORT, function() {
     console.log("SERVER IS LISTENING: " + PORT);
   });
+
