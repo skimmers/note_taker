@@ -12,12 +12,12 @@ let notesData = [];
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, "develop/public")));
+app.use(express.static(path.join(__dirname, "./develop/public")));
 
 // Routes
 app.get("/api/notes", function(err, res){
     try {
-        notesData = fs.readFileSync("develop/db/db.json", utf8);
+        notesData = fs.readFileSync("./develop/db/db.json", utf8);
         notesData = JSON.parse(notesData);
     } catch (err) {
         console.log("\n error (in app.get.catch):");
@@ -29,13 +29,13 @@ app.get("/api/notes", function(err, res){
 //writes new note to json file
 app.post("/api/notes", function(rrq, res) {
     try{
-        notesData = fs.readFileSync(".develop/db/db.son", "utf");
+        notesData = fs.readFileSync("./develop/db/db.json", "utf");
         console.log(notesData);
         notesData = JSON.parse(notesData);
-        requestAnimationFrame.body.id = notesData.length;
+        request.body.id = notesData.length;
         notesData.push(req.body);
         notesData = JSON.stringify(notesData);
-        fs.writeFile(".develop/db/db.json", notesData, "utf8", function(err){
+        fs.writeFile("./develop/db/db.json", notesData, "utf8", function(err){
             if (err) throw err;
         });
         res.json(JSON.parse(notesData));
@@ -45,7 +45,18 @@ app.post("/api/notes", function(rrq, res) {
     }
 });
 
+// HTML requests
+app.get("/notes", function(req, res){
+    res.sendFile(path.join(__dirname, "develop/public/notes.html"));
+});
 
+app.get("*", function(req, res){
+    res.sendFile(path.join(__dirname, "develop/public/index.html"));
+});
+
+app.get("/api/notes", function(req, res){
+    return res.sendFile(path.json(__dirname, "develop/db/db.json"));
+});
 
 // Start the server on the port
 app.listen(PORT, function() {
