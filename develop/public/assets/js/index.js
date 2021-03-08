@@ -40,3 +40,16 @@ const renderActiveNote = () => {
     $noteText.val("");
   }
 };
+
+// gets the note from the inputs and saves/updates to the database
+const handleNoteSave = function () {
+  const newNote = {
+    title: $noteTitle.val(),
+    text: $noteText.val(),
+  };
+
+  saveNote(newNote).then(() => {
+    getAndRenderNotes();
+    renderActiveNote();
+  });
+};
