@@ -15,3 +15,11 @@ const getNotes = () => {
   });
 };
 
+// a function to save a note to the database
+const saveNote = (note) => {
+  return $.ajax({
+    url: "/api/notes",
+    data: note,
+    method: "POST",
+  });
+};
