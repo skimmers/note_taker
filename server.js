@@ -49,3 +49,22 @@ app.post("/api/notes", function(req, res) {
     console.error(err);
   }
 });
+
+
+// This is the get request endpoints
+app.get("/notes", function(req, res) {
+  res.sendFile(path.join(__dirname, "Develop/public/notes.html"));
+});
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "Develop/public/index.html"));
+});
+
+app.get("/api/notes", function(req, res) {
+  return res.sendFile(path.json(__dirname, "Develop/db/db.json"));
+});
+
+//Starts the server on the port
+app.listen(PORT, function() {
+  console.log("SERVER IS LISTENING: " + PORT);
+});
