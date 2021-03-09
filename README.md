@@ -2,7 +2,7 @@
 
 ## Installation/Deployment
 
-Go to this link: <https://github.com/skimmers/note_taker/deployments/activity_log?environment=github-pages> and examine the files. Download the files and open the server.js file in visiual studio code and type "node server.js" in the integrated terminal to run the application. 
+Go to this link: <https://github.com/skimmers/note_taker/deployments/activity_log?environment=github-pages> and examine the files. Download the files and open the server.js file in visiual studio code and type "node server.js" in the integrated terminal to run the application. Here is my heroku link: <https://radiant-escarpment-47134.herokuapp.com/> it does not seem to work. I tried!
 
 ## Goal
 
