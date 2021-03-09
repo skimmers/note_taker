@@ -17,9 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "Develop/public")));
 
 // ROUTES
-app.get("/api/notes", function(err, res) {
+app.get("/api/notes", function (err, res) {
   try {
-    
+
     notesData = fs.readFileSync("Develop/db/db.json", "utf8");
     notesData = JSON.parse(notesData);
 
@@ -31,7 +31,7 @@ app.get("/api/notes", function(err, res) {
 });
 
 // writes the new note to the json file
-app.post("/api/notes", function(req, res) {
+app.post("/api/notes", function (req, res) {
   try {
     notesData = fs.readFileSync("./Develop/db/db.json", "utf8");
     console.log(notesData);
@@ -39,7 +39,7 @@ app.post("/api/notes", function(req, res) {
     req.body.id = notesData.length;
     notesData.push(req.body);
     notesData = JSON.stringify(notesData);
-    fs.writeFile("./Develop/db/db.json", notesData, "utf8", function(err) {
+    fs.writeFile("./Develop/db/db.json", notesData, "utf8", function (err) {
       if (err) throw err;
     });
     res.json(JSON.parse(notesData));
@@ -50,21 +50,20 @@ app.post("/api/notes", function(req, res) {
   }
 });
 
-
 // This is the get request endpoints
-app.get("/notes", function(req, res) {
+app.get("/notes", function (req, res) {
   res.sendFile(path.join(__dirname, "Develop/public/notes.html"));
 });
 
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "Develop/public/index.html"));
 });
 
-app.get("/api/notes", function(req, res) {
+app.get("/api/notes", function (req, res) {
   return res.sendFile(path.json(__dirname, "Develop/db/db.json"));
 });
 
-//Starts the server on the port
-app.listen(PORT, function() {
+//Starts the server on the port 
+app.listen(PORT, function () {
   console.log("SERVER IS LISTENING: " + PORT);
 });

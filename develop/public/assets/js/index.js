@@ -75,6 +75,7 @@ const handleRenderSaveBtn = function () {
   }
 };
 
+
 // Gets notes from database and renders them to the sidebar
 const getAndRenderNotes = () => {
   return getNotes().then(renderNoteList);
