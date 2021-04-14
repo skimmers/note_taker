@@ -2,7 +2,7 @@
 
 ## Installation/Deployment
 
-Go to this link: <https://github.com/skimmers/note_taker/deployments/activity_log?environment=github-pages> and examine the files. Download the files and open the server.js file in visiual studio code and type "node server.js" in the integrated terminal to run the application. Here is my heroku link: <https://radiant-escarpment-47134.herokuapp.com/> it does not seem to work. I tried!
+Go to this link: <https://github.com/skimmers/note_taker/deployments/activity_log?environment=github-pages> and examine the files. Download the files and open the server.js file in visiual studio code and type "node server.js" in the integrated terminal to run the application. Here is my heroku link: <https://note-taker-gatech.herokuapp.com/> it does not seem to work. I tried!
 
 ## Goal
 
@@ -30,6 +30,3 @@ I believe the purpose of this assignment was to not only get me coding and under
 
 I learned how to download inquirer, creating package.json files, and use express.
 
-# Note
-
-I was unable to successfully complete this assignment. For some reason, I am unable to save my notes. If there is any advice as to how to fix this please let me know! 
