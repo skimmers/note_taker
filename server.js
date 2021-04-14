@@ -74,6 +74,10 @@ app.delete("/api/notes/:id", function(req, res) {
 
 // HTML GET Requests
 // Web page when the Get started button is clicked
+app.get("/api/notes", function(req, res) {
+  return res.sendFile(path.json(__dirname, "Develop/db/db.json"));
+});
+
 app.get("/notes", function(req, res) {
   res.sendFile(path.join(__dirname, "Develop/public/notes.html"));
 });
@@ -82,9 +86,7 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "Develop/public/index.html"));
 });
 
-app.get("/api/notes", function(req, res) {
-  return res.sendFile(path.json(__dirname, "Develop/db/db.json"));
-});
+
 
 // Start the server on the port
 app.listen(PORT, function() {
